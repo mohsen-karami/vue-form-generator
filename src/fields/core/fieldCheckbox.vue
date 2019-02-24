@@ -14,7 +14,7 @@ export default {
 	methods: {
 		onChange($event){
 			console.log(this);
-			console.log('cgabi')
+			console.log('cgabi');
 			this.value = Boolean(this.value);
 		}
 	}
