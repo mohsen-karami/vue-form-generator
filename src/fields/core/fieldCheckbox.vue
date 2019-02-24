@@ -1,7 +1,6 @@
 <template>
 	<span @click="onChange" class="checkbox" :value="value" v-bind:class="{ active: value }" :id="getFieldID(schema)"  :disabled="disabled">
 		{{schema.label}} , {{ value }} 
-	is this changing 
 	</span>
 	
 </template>
@@ -13,9 +12,16 @@ export default {
 	mixins: [abstractField],
 	methods: {
 		onChange($event){
+			console.log(this.$data[this.model]);
+			if (this.$data.hasOwnProperty(this.model)) {
+                this.value = Boolean(this.$data[this.model]);
+            }else{
+				this.value = false;
+			}
+			this.value = !this.value;
 			console.log(this);
 			console.log('cgabi');
-			this.value = Boolean(this.value);
+			
 		}
 	}
 };
