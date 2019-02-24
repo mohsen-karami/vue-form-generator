@@ -1,6 +1,6 @@
 <template>
 	<span @click="onChange" class="checkbox" :value="value" v-bind:class="{ active: value }" :id="getFieldID(schema)"  :disabled="disabled">
-		{{schema.label}} , {{ value }} , {{ getItemValue(schema) }}
+		{{schema.label}} , {{ value }} 
 	is this changing 
 	</span>
 	
