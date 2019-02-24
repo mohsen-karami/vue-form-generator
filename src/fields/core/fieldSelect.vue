@@ -2,7 +2,7 @@
 	<div class="customSelect">
 		<div class="btn-group-select">
 			<li @click="toggleMenu()" class="dropdown-toggle-select" v-if="selectedOption.name !== undefined">
-				{{ text_truncate(selectedOption.name,30) }}
+				{{ selectedOption.name }}
 				<span class="caret"></span>
 			</li>
 
