@@ -1,6 +1,6 @@
 <template>
-	<span @click="onChange" class="checkbox" v-bind:class="{ active: value }" :id="getFieldID(schema)"  :disabled="disabled">
-		{{schema.label}}
+	<span @click="onChange" class="checkbox" :value="value" v-bind:class="{ active: value }" :id="getFieldID(schema)"  :disabled="disabled">
+		{{schema.label}} , {{ value }} , {{ getItemValue(schema) }}
 	</span>
 </template>
 
@@ -13,7 +13,6 @@ export default {
 		onChange($event){
 			console.log(this);
 			this.value = Boolean(this.value);
-			this.value = !this.value;
 		}
 	}
 };
