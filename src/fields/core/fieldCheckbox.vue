@@ -11,6 +11,8 @@ export default {
 	mixins: [abstractField],
 	methods: {
 		onChange($event){
+			console.log(this);
+			this.value = Boolean(this.value);
 			this.value = !this.value;
 		}
 	}
