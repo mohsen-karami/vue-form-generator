@@ -1,7 +1,9 @@
 <template>
 	<span @click="onChange" class="checkbox" :value="value" v-bind:class="{ active: value }" :id="getFieldID(schema)"  :disabled="disabled">
 		{{schema.label}} , {{ value }} , {{ getItemValue(schema) }}
+	is this changing 
 	</span>
+	
 </template>
 
 <script>
@@ -12,6 +14,7 @@ export default {
 	methods: {
 		onChange($event){
 			console.log(this);
+			console.log('cgabi')
 			this.value = Boolean(this.value);
 		}
 	}
