@@ -176,6 +176,7 @@ export default {
 
 <style lang="scss">
 .customSelect{
+	width: 100%;
 	.btn-group-select {
 		margin-bottom: 1rem;
 		padding: 5px;
