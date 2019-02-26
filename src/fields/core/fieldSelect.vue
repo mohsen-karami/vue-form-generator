@@ -178,10 +178,9 @@ export default {
 .customSelect{
 	width: 100%;
 	.btn-group-select {
-		margin-bottom: 1rem;
-		padding: 5px;
 		display: block;
-		padding: 10px 17px 10px 10px;
+		margin: 5px 0px;
+		padding: 10px 17px 5px 10px;
 		font-size: 13px;
 		line-height: 1.42857143;
 		color: #555;
