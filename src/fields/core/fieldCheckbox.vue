@@ -22,9 +22,10 @@ export default {
 .vue-form-generator .field-checkbox .checkbox{
 	color: #585858;
     background-color: #fff;
-    padding: 5px;
+    padding: 5px 8px;
+    margin-top: 29px;
     border-radius: 5px;
-    border: 1px solid #686869;
+    border: 1px solid #ccc;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
 	-khtml-user-select: none; /* Konqueror HTML */
