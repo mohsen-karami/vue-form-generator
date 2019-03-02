@@ -179,8 +179,7 @@ export default {
 	width: 100%;
 	.btn-group-select {
 		display: block;
-		margin: 5px 0px;
-		padding: 10px 17px 5px 10px;
+		padding: 7px 8px 7px 10px;
 		font-size: 13px;
 		line-height: 1.42857143;
 		color: #555;
