@@ -23,7 +23,7 @@ export default {
 	color: #585858;
     background-color: #fff;
     padding: 5px 8px;
-    margin-top: 29px;
+    margin: 29px auto 0;
     border-radius: 5px;
     border: 1px solid #ccc;
 	-webkit-touch-callout: none; /* iOS Safari */
