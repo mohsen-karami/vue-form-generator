@@ -7,12 +7,11 @@ div.vue-form-generator(v-if='schema != null')
 	template(v-for='group,key in groups')
 		fieldset(:is='tag', :class='getFieldRowClasses(group)')
 			legend(v-if='group.legend') {{ group.legend }}
-				i(@click="toggleList(key)" :class="showCollapse[key] ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" :aria-controls="'collapse' + key" :aria-expanded="showCollapse[key] ? 'true' : 'false'")
+				i(@click="toggleList(key)" :class="showCollapse[key] ? 'fa fa-chevron-up' : 'fa fa-chevron-down'" :aria-controls="'collapse' + key" :aria-expanded="showCollapse[key] ? 'true' : 'false'")
 			b-collapse(class="mt-2"  v-model="!showCollapse[key]" :id="'collapse'+key")
 				template(v-for='field in group.fields')
 					form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 </template>
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 <script>
 import { get as objGet, forEach, isFunction, isNil, isArray } from "lodash";
 import formMixin from "./formMixin.js";
@@ -216,6 +215,13 @@ export default {
 .vue-form-generator {
 	* {
 		box-sizing: border-box;
+	}
+
+	legend i{
+		float: right;
+		margin-top: 9px;
+		margin-right: 6px;
+		font-size: 18px;
 	}
 
 	.form-control {
