@@ -4,13 +4,15 @@ div.vue-form-generator(v-if='schema != null')
 		template(v-for='field in fields')
 			form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 
-	template(v-for='group in groups')
+	template(v-for='group,key in groups')
 		fieldset(:is='tag', :class='getFieldRowClasses(group)')
 			legend(v-if='group.legend') {{ group.legend }}
-			template(v-for='field in group.fields')
-				form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
+				i(@click="toggleList(key)" :class="showCollapse[key] ? 'fa fa-chevron-down' : 'fa fa-chevron-up'" :aria-controls="'collapse' + key" :aria-expanded="showCollapse[key] ? 'true' : 'false'")
+			b-collapse(class="mt-2"  v-model="!showCollapse[key]" :id="'collapse'+key")
+				template(v-for='field in group.fields')
+					form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 </template>
-
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 <script>
 import { get as objGet, forEach, isFunction, isNil, isArray } from "lodash";
 import formMixin from "./formMixin.js";
@@ -61,10 +63,10 @@ export default {
 	data() {
 		return {
 			vfg: this,
+			showCollapse: [],
 			errors: [] // Validation errors
 		};
 	},
-
 	computed: {
 		fields() {
 			let res = [];
@@ -130,7 +132,10 @@ export default {
 
 			return field.visible;
 		},
-
+		// open and close groups
+		toggleList: function (key){
+			this.$set(this.showCollapse,key, !this.showCollapse[key]);
+		},
 		// Child field executed validation
 		onFieldValidated(res, errors, field) {
 			// Remove old errors for this field
@@ -207,7 +212,6 @@ export default {
 	}
 };
 </script>
-
 <style lang="scss">
 .vue-form-generator {
 	* {
