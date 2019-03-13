@@ -1,9 +1,9 @@
 import Vue from "vue";
 import VueFormGenerator from "../../../src";
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from "bootstrap-vue";
 
 Vue.use(VueFormGenerator);
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
 
 import App from "./app.vue";
 

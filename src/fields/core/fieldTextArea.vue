@@ -11,6 +11,7 @@
 		:required="schema.required",
 		:rows="schema.rows || 2",
 		:name="schema.inputName",
+		@input="textareaResize"
 		v-attributes="'input'")
 </template>
 
@@ -18,7 +19,12 @@
 import abstractField from "../abstractField";
 
 export default {
-	mixins: [abstractField]
+	mixins: [abstractField],
+	methods: {
+		textareaResize(event) {			
+			event.path[0].style.minHeight = event.path[0].scrollHeight + 'px';
+		}
+	}
 };
 </script>
 
