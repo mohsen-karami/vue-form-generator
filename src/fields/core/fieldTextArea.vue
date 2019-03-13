@@ -16,13 +16,14 @@
 </template>
 
 <script>
+
 import abstractField from "../abstractField";
 
 export default {
 	mixins: [abstractField],
 	methods: {
 		textareaResize(event) {			
-			event.path[0].style.minHeight = event.path[0].scrollHeight + 'px';
+			this.$el.style.height = this.$el.scrollHeight + 'px';
 		}
 	}
 };
@@ -30,5 +31,17 @@ export default {
 
 
 <style lang="scss">
+.vue-form-generator textarea{  
+  display: block;
+  box-sizing: padding-box;
+  overflow: hidden;
 
+  padding: 10px;
+  width: 250px;
+  font-size: 14px;
+  margin: 50px auto;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(black, .3);
+  border: 0;
+}
 </style>

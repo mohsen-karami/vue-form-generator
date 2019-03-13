@@ -35,8 +35,8 @@ export default {
 			schema: {
 				fields: [
 					{
-						type: "input",
-						inputType: "text",
+						  "type": "textArea",
+  "inputType": "text",
 						label: "First Name",
 						model: "first_name",
 						attributes: {
