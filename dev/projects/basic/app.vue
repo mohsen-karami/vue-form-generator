@@ -35,10 +35,11 @@ export default {
 			schema: {
 				fields: [
 					{
-						  "type": "textArea",
-  "inputType": "text",
+						"type": "textArea",
+  						"inputType": "text",
 						label: "First Name",
 						model: "first_name",
+						showAlways: true,
 						attributes: {
 							input: {
 								"data-toggle": "tooltip"

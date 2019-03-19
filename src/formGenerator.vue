@@ -10,8 +10,10 @@ div.vue-form-generator(v-if='schema != null')
 				i(@click="toggleList(key)" :class="showCollapse[key] ? 'fa fa-chevron-up' : 'fa fa-chevron-down'" :aria-controls="'collapse' + key" :aria-expanded="showCollapse[key] ? 'true' : 'false'")
 			b-collapse(class="mt-2"  v-model="showCollapse[key]" :id="'collapse'+key")
 				template(v-for='field in group.fields')
-					form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
+					form-group(v-if='fieldVisible(field) && isNil(field.showAlways)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 				i(@click="toggleList(key)" :class="showCollapse[key] ? 'fa fa-chevron-up pull-right' : 'fa fa-chevron-down pull-right'" :aria-controls="'collapse' + key" :aria-expanded="showCollapse[key] ? 'true' : 'false'")
+			template(v-for='field in group.fields')
+				form-group(v-if='fieldVisible(field) && !isNil(field.showAlways)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 </template>
 <script>
 import { get as objGet, forEach, isFunction, isNil, isArray } from "lodash";
