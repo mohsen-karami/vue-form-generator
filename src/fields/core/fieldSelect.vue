@@ -2,7 +2,7 @@
 	<div class="customSelect">
 		<div class="btn-group-select">
 			<li @click="toggleMenu()" class="dropdown-toggle-select">
-				 {{ getVuleItem(value) }}
+				{{ getVuleItem(value) }}
 				<span class="caret"></span>
 			</li>
 
@@ -139,12 +139,11 @@ export default {
 		},
 
 		getVuleItem(value) {
-			for(var key in this.items){
-				console.log(key ,value,this.items[key].name)
-				if(this.items[key].id == value)
-					return this.items[key].name
+			for(let key in this.items){
+				if(this.items[key].id === value)
+					return this.items[key].name;
 			}
-			return  "Please select an item" 
+			return  "Please select an item";
 		},
 
 		getItemValue(item) {
