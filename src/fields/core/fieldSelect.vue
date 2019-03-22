@@ -1,13 +1,13 @@
 <template>
 	<div class="customSelect">
 		<div class="btn-group-select">
-			<li @click="toggleMenu()" class="dropdown-toggle-select" v-if="selectedOption.name !== undefined">
-				{{ selectedOption.name }}
+			<li @click="toggleMenu()" class="dropdown-toggle-select">
+				 {{ getVuleItem(value) }}
 				<span class="caret"></span>
 			</li>
 
 			<ul class="dropdown-select" v-if="showMenu">
-				<li  v-for="item in items" :key="getItemValue(item)">
+				<li v-for="item in items" :key="getItemValue(item)">
 					<a href="javascript:void(0)" @click="updateOption(item)">
 						{{ getItemName(item) }}
 					</a>
@@ -136,6 +136,15 @@ export default {
 			}
 
 			throw "Group name is missing! https://icebob.gitbooks.io/vueformgenerator/content/fields/select.html#select-field-with-object-items";
+		},
+
+		getVuleItem(value) {
+			for(var key in this.items){
+				console.log(key ,value,this.items[key].name)
+				if(this.items[key].id == value)
+					return this.items[key].name
+			}
+			return  "Please select an item" 
 		},
 
 		getItemValue(item) {

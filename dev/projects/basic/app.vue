@@ -27,13 +27,56 @@ export default {
 			selected: [],
 
 			model: {
-				first_name: "David",
-				last_name: "Higgins",
+				first_name: "VueJS",
+				last_name: "user",
 				status: true
 			},
 
 			schema: {
 				fields: [
+
+
+		{
+			type: "select",
+			label: "Role",
+			model: "last_name",
+			required: true,
+			selectOptions: {
+				noneSelectedText: "Nincs kijelölve"
+			},
+			values: [
+				{
+					id: "admin",
+					name: "Administrator"
+				},
+				{
+					id: 0,
+					name: "Zero"
+				},
+				{
+					id: "moderator",
+					name: "Moderator"
+				},
+				{
+					id: "user",
+					name: "Registered User"
+				},
+				{
+					id: "visitor",
+					name: "Visitor"
+				}
+			],
+			styleClasses: "half-width",
+		},
+
+		 {
+            type: 'select',
+            label: 'Skills',
+            model: 'first_name',
+            values: ['Javascript', 'VueJS', 'CSS3', 'HTML5']
+          },
+
+
 					{
 						"type": "textArea",
   						"inputType": "text",
