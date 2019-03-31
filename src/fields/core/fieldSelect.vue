@@ -82,7 +82,7 @@ export default {
 		groupValues(values) {
 			let array = [];
 			let arrayElement = {};
-
+			array.push({id:null,name:'Not selected'});
 			values.forEach(item => {
 				arrayElement = null;
 
@@ -94,7 +94,6 @@ export default {
 
 					if (arrayElement) {
 						// There is such a group.
-
 						arrayElement.ops.push({
 							id: item.id,
 							name: item.name
@@ -107,7 +106,6 @@ export default {
 							group: "",
 							ops: []
 						};
-
 						// Set group.
 						arrayElement.group = item.group;
 
@@ -125,7 +123,6 @@ export default {
 					array.push(item);
 				}
 			});
-
 			// With Groups.
 			return array;
 		},
