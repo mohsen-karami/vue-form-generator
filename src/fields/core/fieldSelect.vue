@@ -136,9 +136,12 @@ export default {
 		},
 
 		getVuleItem(value) {
+
 			for(let key in this.items){
 				if(this.items[key].id === value)
 					return this.items[key].name;
+				if(this.items[key] === value)
+					return this.items[key];
 			}
 			return  "Please select an item";
 		},
